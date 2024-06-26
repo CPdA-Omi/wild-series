@@ -20,6 +20,10 @@ const programsRouter = require("./programs/router");
 
 router.use("/programs", programsRouter);
 
+const categoriesRouter = require("./categories/router");
+
+router.use("/categories", categoriesRouter);
+
 /* ************************************************************************* */
 
 module.exports = router;
