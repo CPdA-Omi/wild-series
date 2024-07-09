@@ -10,3 +10,19 @@ create table item (
   user_id int unsigned not null,
   foreign key(user_id) references user(id)
 );
+
+CREATE TABLE category (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE program (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  synopsis TEXT NOT NULL,
+  poster VARCHAR(255) UNIQUE,
+  country VARCHAR(255) NOT NULL,
+  year CHAR(4) NOT NULL,
+  category_id INT NOT NULL REFERENCES category(id),
+  CONSTRAINT CHK_Year CHECK (year>=1895 AND year<=2200)
+);
